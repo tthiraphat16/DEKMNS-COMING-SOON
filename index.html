@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEKMNS - Coming Soon</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;500;700&family=Mali:wght@500;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-green: #1b4332;
+            --mint-green: #52b788;
+            --light-mint: #b7e4c7;
+            --bg-color: #f4f9f4;
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --font-y2k: 'Plus Jakarta Sans', 'Anuphan', sans-serif;
+            --font-cute: 'Mali', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-cute);
+            background-color: var(--bg-color);
+            color: var(--primary-green);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            overflow-x: hidden;
+            position: relative;
+            padding: 20px;
+            /* พื้นหลังลายตาราง Y2K Grid */
+            background-image: 
+                linear-gradient(rgba(82, 183, 136, 0.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(82, 183, 136, 0.08) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* เอฟเฟกต์แสงเบลอสีเขียว (Glow Background) */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(82, 183, 136, 0.25);
+            filter: blur(80px);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+        }
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(183, 228, 199, 0.3);
+            filter: blur(100px);
+            border-radius: 50%;
+            bottom: 10%;
+            right: 5%;
+            z-index: -1;
+        }
+
+        /* --- ส่วนหัว (Header) --- */
+        header {
+            width: 100%;
+            max-width: 450px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 32px 0 rgba(27, 67, 50, 0.05);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .logo-box {
+            background: #ffffff;
+            padding: 12px 24px;
+            border-radius: 18px;
+            box-shadow: 0 4px 15px rgba(27, 67, 50, 0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid #e2efe2;
+        }
+
+        .logo-text {
+            font-family: var(--font-y2k);
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-green);
+            letter-spacing: 1px;
+            position: relative;
+        }
+        
+        .logo-text span {
+            color: var(--mint-green);
+            display: inline-block;
+            transform: rotate(15px);
+        }
+
+        /* --- กล่องอนิเมชันการ์ตูน (Illustration Card) --- */
+        .illustration-card {
+            width: 100%;
+            max-width: 450px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-radius: 32px;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 24px;
+            border: 3px solid #ffffff;
+            box-shadow: 0 12px 24px rgba(27, 67, 50, 0.05);
+            overflow: hidden;
+        }
+
+        /* เฟืองหมุน */
+        .gear-1 {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            color: var(--mint-green);
+            font-size: 40px;
+            opacity: 0.7;
+            animation: spin 8s linear infinite;
+        }
+        .gear-2 {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            color: var(--mint-green);
+            font-size: 55px;
+            opacity: 0.6;
+            animation: spin-reverse 12s linear infinite;
+        }
+
+        /* ตัวละคร Chibi และสิ่งก่อสร้าง */
+        .construction-zone {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cone {
+            font-size: 32px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .chibi-worker {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .chibi-avatar {
+            font-size: 65px;
+            line-height: 1;
+            position: relative;
+        }
+
+        .hammer {
+            position: absolute;
+            right: -15px;
+            bottom: 5px;
+            font-size: 28px;
+            transform-origin: bottom left;
+            animation: hammer-swing 1.2s ease-in-out infinite;
+        }
+
+        .signpost {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sign-board {
+            background: var(--primary-green);
+            color: #ffffff;
+            font-family: var(--font-y2k);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 6px 12px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .sign-pole {
+            width: 4px;
+            height: 40px;
+            background: var(--primary-green);
+        }
+
+        /* --- ส่วนเนื้อหาหลัก (Main Content) --- */
+        .main-content {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .badge-student {
+            background: #ffffff;
+            border: 1px solid var(--light-mint);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-green);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .badge-student::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background-color: #2a9d8f;
+            border-radius: 50%;
+        }
+
+        .title-brand {
+            font-family: var(--font-y2k);
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--primary-green);
+            line-height: 1;
+            margin-bottom: 5px;
+            letter-spacing: -1px;
+        }
+
+        .title-sub {
+            font-family: var(--font-y2k);
+            font-size: 28px;
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1.5px var(--primary-green);
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .description-box {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--primary-green);
+            margin-bottom: 30px;
+            font-weight: 500;
+            padding: 0 10px;
+        }
+        
+        .description-box .heart-icon {
+            color: #52b788;
+            display: inline-block;
+            animation: pulse 1.5s infinite;
+        }
+
+        /* --- ส่วนแสดงความคืบหน้า (Progress Section) --- */
+        .progress-card {
+            width: 100%;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px;
+            box-shadow: 0 8px 32px 0 rgba(27, 67, 50, 0.04);
+            margin-bottom: 24px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .progress-label {
+            font-family: var(--font-y2k);
+            font-weight: 800;
+            font-size: 14px;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .progress-number {
+            font-family: var(--font-y2k);
+            font-weight: 800;
+            font-size: 26px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 16px;
+            background: #e2efe2;
+            border-radius: 50px;
+            overflow: hidden;
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .progress-bar-fill {
+            width: 65%; /* กำหนดเปอร์เซ็นต์ความคืบหน้าตรงนี้ */
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--mint-green) 100%);
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* เอฟเฟกต์แสงวิ่งผ่าน Progress Bar */
+        .progress-bar-fill::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(255,255,255,0) 0%,
+                rgba(255,255,255,0.4) 50%,
+                rgba(255,255,255,0) 100*
+            );
+            animation: shimmer 2s infinite;
+        }
+
+        .status-building {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .status-building i {
+            animation: spin 4s linear infinite;
+        }
+
+        /* --- ส่วนท้าย (Footer) --- */
+        footer {
+            width: 100%;
+            max-width: 450px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 8px 32px 0 rgba(27, 67, 50, 0.04);
+            margin-top: auto; /* ดันลงล่างสุด */
+        }
+
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary-green);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            text-decoration: none;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 4px 10px rgba(27, 67, 50, 0.15);
+        }
+
+        .social-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--mint-green);
+        }
+
+        .copyright {
+            font-family: var(--font-y2k);
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.6;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- องค์ประกอบลอยตกแต่งหน้าเว็บ (Floating Elements) --- */
+        .floating-item {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+        .float-1 { top: 15%; left: 5%; font-size: 32px; animation: float-slow 6s ease-in-out infinite; }
+        .float-2 { top: 40%; right: 5%; font-size: 28px; animation: float-slow 8s ease-in-out infinite 1s; }
+        .float-3 { bottom: 25%; left: 8%; font-size: 35px; animation: float-slow 7s ease-in-out infinite 2s; }
+        .float-4 { top: 65%; left: 45%; font-size: 24px; animation: float-slow 5s ease-in-out infinite 0.5s; }
+
+        /* --- คีย์เฟรมอนิเมชัน (Keyframes) --- */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes spin-reverse {
+            0% { transform: rotate(360deg); }
+            100% { transform: rotate(0deg); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes hammer-swing {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-35deg); }
+        }
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(10deg); }
+        }
+
+        /* ปรับแต่งสำหรับหน้าจอใหญ่ (Desktop Responsive) */
+        @media (min-width: 768px) {
+            body {
+                padding: 40px 20px;
+                justify-content: center;
+            }
+            header, .illustration-card, .main-content, footer {
+                max-width: 480px;
+            }
+            .title-brand { font-size: 64px; }
+            .title-sub { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+
+    <i class="fa-solid fa-graduation-cap floating-item float-1"></i>
+    <i class="fa-solid fa-book-bookmark floating-item float-2"></i>
+    <i class="fa-solid fa-pencil floating-item float-3"></i>
+    <i class="fa-solid fa-sparkles floating-item float-4"></i>
+
+    <!-- ส่วนหัว (Header) -->
+<header>
+    <div class="logo-box">
+        <!-- เปลี่ยนจากข้อความ เป็นการดึงรูปภาพโลโก้ของคุณมาแสดง -->
+        <img src="logo.png" alt="DEKMNS Logo" style="height: 45px; width: auto; object-fit: contain;">
+    </div>
+</header>
+
+
+    <section class="illustration-card">
+        <i class="fa-solid fa-gear gear-1"></i>
+        <i class="fa-solid fa-gear gear-2"></i>
+        
+        <div class="construction-zone">
+            <div class="cone">🚧</div>
+            
+            <div class="chibi-worker">
+                <div class="chibi-avatar">🧑‍</div>
+                
+            </div>
+            
+            <div class="signpost">
+                <div class="sign-board">DEKMNS</div>
+                <div class="sign-pole"></div>
+            </div>
+<div class="hammer">🔨</div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="badge-student">STUDENT MEDIA • EST. 2026</div>
+        
+        <h1 class="title-brand">DEKMNS</h1>
+        <h2 class="title-sub">COMING SOON</h2>
+        
+        <div class="description-box">
+            <p>เว็บไซต์กำลังอยู่ระหว่างการพัฒนา</p>
+            <p>เรากำลังสร้างพื้นที่ใหม่สำหรับนักเรียนทุกคน โปรดติดตามเร็ว ๆ นี้ <span class="heart-icon">💚</span></p>
+        </div>
+
+        <div class="progress-card">
+            <div class="progress-header">
+                <span class="progress-label">PROGRESS</span>
+                <span class="progress-number">65%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <div class="status-building">
+                <i class="fa-solid fa-hammer"></i> กำลังก่อสร้าง... <i class="fa-solid fa-gear"></i>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/dekmns.official" target="_blank" class="social-btn" title="Instagram: @dekmns.official">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1D3RW49yvf/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook: DEKMNS">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 DEKMNS All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>
