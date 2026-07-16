@@ -346,7 +346,7 @@
                 90deg,
                 rgba(255,255,255,0) 0%,
                 rgba(255,255,255,0.4) 50%,
-                rgba(255,255,255,0) 100*
+                rgba(255,255,255,0) 100%
             );
             animation: shimmer 2s infinite;
         }
@@ -363,47 +363,6 @@
         .status-building i {
             animation: spin 4s linear infinite;
         }
-         /* --- ส่วนพาร์ทเนอร์และสปอนเซอร์ (Powered By & Sponsored By) --- */
-        .partners-section {
-            width: 80%;
-            border-top: 1px dashed rgba(27, 67, 50, 0.15);
-            padding-top: 16px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-            text-align: center;
-
-        }
-
-        .partner-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .partner-title {
-            font-family: var(--font-y2k);
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-            color: var(--primary-green);
-            opacity: 0.6;
-            text-transform: uppercase;
-        }
-
-        .partner-logo {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-            filter: grayscale(20%) brightness(95%);
-            transition: filter 0.3s ease;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%) brightness(100%);
-            
-
 
         /* --- ส่วนท้าย (Footer) --- */
         footer {
@@ -418,7 +377,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 16px;
+            gap: 20px;
             box-shadow: 0 8px 32px 0 rgba(27, 67, 50, 0.04);
             margin-top: auto; /* ดันลงล่างสุด */
         }
@@ -446,6 +405,46 @@
         .social-btn:hover {
             transform: scale(1.1) rotate(5deg);
             background: var(--mint-green);
+        }
+
+        /* --- ส่วนพาร์ทเนอร์และสปอนเซอร์ (Powered By & Sponsored By) --- */
+        .partners-section {
+            width: 100%;
+            border-top: 1px dashed rgba(27, 67, 50, 0.15);
+            padding-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .partner-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .partner-title {
+            font-family: var(--font-y2k);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--primary-green);
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .partner-logo {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%) brightness(95%);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%) brightness(100%);
         }
 
         .copyright {
@@ -520,14 +519,13 @@
     <i class="fa-solid fa-sparkles floating-item float-4"></i>
 
     <!-- ส่วนหัว (Header) -->
-<header>
-    <div class="logo-box">
-        <!-- เปลี่ยนจากข้อความ เป็นการดึงรูปภาพโลโก้ของคุณมาแสดง -->
-        <img src="logo.png" alt="DEKMNS Logo" style="height: 45px; width: auto; object-fit: contain;">
-    </div>
-</header>
+    <header>
+        <div class="logo-box">
+            <img src="logo.png" alt="DEKMNS Logo" style="height: 45px; width: auto; object-fit: contain;">
+        </div>
+    </header>
 
-
+    <!-- กล่องอนิเมชันการ์ตูน -->
     <section class="illustration-card">
         <i class="fa-solid fa-gear gear-1"></i>
         <i class="fa-solid fa-gear gear-2"></i>
@@ -536,18 +534,18 @@
             <div class="cone">🚧</div>
             
             <div class="chibi-worker">
-                <div class="chibi-avatar">🧑‍</div>
-                
+                <div class="chibi-avatar">🧑‍💻</div>
             </div>
             
             <div class="signpost">
                 <div class="sign-board">DEKMNS</div>
                 <div class="sign-pole"></div>
             </div>
-<div class="hammer">🔨</div>
+            <div class="hammer">🔨</div>
         </div>
     </section>
 
+    <!-- เนื้อหาหลัก -->
     <main class="main-content">
         <div class="badge-student">STUDENT MEDIA • EST. 2026</div>
         
@@ -572,7 +570,19 @@
             </div>
         </div>
     </main>
-       <!-- ส่วนที่เพิ่มมาใหม่: Powered By & Sponsored By -->
+
+    <!-- ส่วนท้าย (Footer + พาร์ทเนอร์) -->
+    <footer>
+        <div class="social-links">
+            <a href="https://www.instagram.com/dekmns.official" target="_blank" class="social-btn" title="Instagram: @dekmns.official">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/share/1D3RW49yvf/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook: DEKMNS">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+        </div>
+
+        <!-- ส่วนที่เพิ่มมาใหม่: Powered By & Sponsored By -->
         <div class="partners-section">
             <div class="partner-group">
                 <span class="partner-title">Powered By</span>
@@ -586,16 +596,6 @@
             </div>
         </div>
 
-
-    <footer>
-        <div class="social-links">
-            <a href="https://www.instagram.com/dekmns.official" target="_blank" class="social-btn" title="Instagram: @dekmns.official">
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-            <a href="https://www.facebook.com/share/1D3RW49yvf/?mibextid=wwXIfr" target="_blank" class="social-btn" title="Facebook: DEKMNS">
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-        </div>
         <div class="copyright">
             &copy; 2026 DEKMNS All rights reserved.
         </div>
