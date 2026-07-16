@@ -363,6 +363,46 @@
         .status-building i {
             animation: spin 4s linear infinite;
         }
+         /* --- ส่วนพาร์ทเนอร์และสปอนเซอร์ (Powered By & Sponsored By) --- */
+        .partners-section {
+            width: 100%;
+            border-top: 1px dashed rgba(27, 67, 50, 0.15);
+            padding-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            text-align: center;
+        }
+
+        .partner-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .partner-title {
+            font-family: var(--font-y2k);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: var(--primary-green);
+            opacity: 0.6;
+            text-transform: uppercase;
+        }
+
+        .partner-logo {
+            height: 28px;
+            width: auto;
+            object-fit: contain;
+            filter: grayscale(20%) brightness(95%);
+            transition: filter 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%) brightness(100%);
+        }
+
 
         /* --- ส่วนท้าย (Footer) --- */
         footer {
